@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+<form name="lunchform"  novalidate>
+
+         <div class="form-group" ng-class="{'has-error' : lunchform.$error.required}">
+             <input id="lunch-menu" type="text" ng-model="items" ng-required="true"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+             <p class="help-block" ng-show="lunchform.$error.required">
+                    Please enter the Lunch Items!</p>
+         </div>
+         <div class="form-group">
+             <button class="btn btn-primary" ng-click="checkItems()">Check If Too Much</button>
+         </div>
+
+         <div class="form-group bg-info" ng-show="!lunchform.$error.required">
+           {{message}}
+         </div>
+       </form>
+
+   </div>
+
+</body>
+</html>
